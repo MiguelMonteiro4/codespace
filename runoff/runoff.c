@@ -129,7 +129,7 @@ int main(int argc, string argv[])
 bool vote(int voter, int rank, string name)
 {
     printf("%i \n%i \n%s \n", voter, rank, name);
-    for (int i = 0; i < MAX_CANDIDATES; i++)
+    for (int i = 0; i < candidate_count; i++)
     {
         if (name == candidates[i].name)
         {
@@ -146,10 +146,10 @@ void tabulate(void)
 {
 
     // iterate over voters
-    for (int i = 0; i < MAX_VOTERS; i++)
+    for (int i = 0; i < voter_count; i++)
     {
         // iterate over rank
-        for (int j = 0; j < MAX_CANDIDATES; j++)
+        for (int j = 0; j < candidate_count; j++)
         {
             if (!candidates[j].eliminated)
                 {
@@ -165,9 +165,9 @@ void tabulate(void)
 // Print the winner of the election, if there is one
 bool print_winner(void)
 {
-    for (int i = 0; i < MAX_CANDIDATES; i++)
+    for (int i = 0; i < candidate_count; i++)
     {
-        if (candidates[i].votes >= MAX_VOTERS / 2)
+        if (candidates[i].votes >= voter_count / 2)
         {
             printf("%s",candidates[i].name);
             return true;
@@ -181,7 +181,7 @@ bool print_winner(void)
 int find_min(void)
 {
     int min = candidates[0].votes;
-    for (int i = 1; i < MAX_CANDIDATES; i++)
+    for (int i = 1; i < candidate_count; i++)
     {
         if (min > candidates[i].votes)
         {
@@ -195,7 +195,7 @@ int find_min(void)
 bool is_tie(int min)
 {
     bool eval = true;
-    for (int i = 0; i < MAX_CANDIDATES; i++)
+    for (int i = 0; i < candidate_count; i++)
     {
         if (candidates[i + 1].votes != candidates[i].votes)
         {
@@ -208,7 +208,7 @@ bool is_tie(int min)
 // Eliminate the candidate (or candidates) in last place
 void eliminate(int min)
 {
-    for (int i = 0; i < MAX_CANDIDATES; i++)
+    for (int i = 0; i < candidate_count; i++)
     {
         if (candidates[i].votes == min && !candidates[i].eliminated)
         {

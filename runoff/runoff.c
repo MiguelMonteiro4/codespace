@@ -128,7 +128,7 @@ int main(int argc, string argv[])
 // Record preference if vote is valid
 bool vote(int voter, int rank, string name)
 {
-
+    printf("%i \n%i \n%s \n", voter, rank, name);
     for (int i = 0; i < MAX_CANDIDATES; i++)
     {
         if (name == candidates[i].name)

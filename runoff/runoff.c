@@ -126,7 +126,6 @@ int main(int argc, string argv[])
 }
 
 // Record preference if vote is valid
-// Record preference if vote is valid
 bool vote(int voter, int rank, string name)
 {
     for (int i = 0; i < candidate_count; i++)
@@ -178,16 +177,15 @@ bool print_winner(void)
 
     for (int i = 0; i < candidate_count; i++)
     {
-        printf("%s |", candidates[i].name);
-        printf("%i |", candidates[i].votes);
-        printf("%i\n", candidates[i].eliminated);
+        printf("%s \t", candidates[i].name);
+        printf("%i \t", candidates[i].votes);
+        printf("%i \n", candidates[i].eliminated);
     }
 
 
     int half = (voter_count / 2) + voter_count%2;
     for (int i = 0; i < candidate_count; i++)
     {
-        printf("voter count /2 = %i", half);
         if (candidates[i].votes >= half)
         {
             printf("%s\n",candidates[i].name);

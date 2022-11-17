@@ -183,10 +183,12 @@ bool print_winner(void)
         printf("%i\n", candidates[i].eliminated);
     }
 
+
+    int half = (voter_count / 2) + voter_count%2;
     for (int i = 0; i < candidate_count; i++)
     {
-        printf("voter count /2 = %i", voter_count / 2);
-        if (candidates[i].votes >= voter_count / 2)
+        printf("voter count /2 = %i", half);
+        if (candidates[i].votes >= half)
         {
             printf("%s\n",candidates[i].name);
             return true;

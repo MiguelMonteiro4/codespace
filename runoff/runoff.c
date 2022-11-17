@@ -173,6 +173,16 @@ bool print_winner(void)
         }
         printf("\n");
     }
+
+    printf("\n\n");
+
+    for (int i = 0; i < candidate_count; i++)
+    {
+        printf("%s |", candidates[i].name);
+        printf("%i |", candidates[i].votes);
+        printf("%i\n", candidates[i].eliminated);
+    }
+
     for (int i = 0; i < candidate_count; i++)
     {
         if (candidates[i].votes >= voter_count / 2)
